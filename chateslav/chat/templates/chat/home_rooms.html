@@ -1,0 +1,12 @@
+{% extends 'chat/home_base.html'%}
+
+    {% block home_1 %}
+    <div>
+        <strong><big>Available Rooms:</big></strong>
+    </div>
+    {% for room in data %}
+        <div>
+            {{ room }}
+        </div>
+    {% endfor %}
+    {% endblock home_1 %}

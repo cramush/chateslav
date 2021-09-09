@@ -5,12 +5,16 @@ from random import randint
 
 
 def home(request):
-    return render(request, 'chat/home.html')
+    data = Room.objects.all()
+    if len(data) == 0:
+        return render(request, 'chat/home_base.html')
+
+    else:
+        return render(request, "chat/home_rooms.html", {"data": data})
 
 
 def room(request, room):
     username = request.GET.get('username')
-    # print(type(username))
 
     vowels_ru = ["а", "у", "о", "ы", "и", "э", "ю", "ё", "е"]
     consonants_ru = ["б", "в", "г", "д", "ж", "з", "й", "к", "л", "м",

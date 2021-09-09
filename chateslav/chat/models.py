@@ -5,6 +5,9 @@ from datetime import datetime, timedelta
 class Room(models.Model):
     name = models.CharField(max_length=1000)
 
+    def __str__(self):
+        return self.name
+
 
 class Message(models.Model):
     value = models.CharField(max_length=1000000)
